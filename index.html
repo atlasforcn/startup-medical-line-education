@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>醫線教育醫療學習平台原型</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="edu-app">
+      <section class="hero">
+        <div>
+          <p>醫線教育 / U-start 114</p>
+          <h1>把醫療課程、題庫與學習弱點整合成可追蹤的線上教育平台。</h1>
+        </div>
+        <div class="progress-card">
+          <span>本週進度</span>
+          <strong id="weeklyProgress">0%</strong>
+        </div>
+      </section>
+
+      <section class="layout">
+        <div class="panel courses">
+          <div class="panel-head">
+            <div>
+              <p>Curriculum</p>
+              <h2>課程與題庫</h2>
+            </div>
+            <select id="trackFilter">
+              <option value="all">全部科別</option>
+              <option value="emergency">急診</option>
+              <option value="nursing">護理</option>
+              <option value="public">公衛</option>
+            </select>
+          </div>
+          <div id="courseList" class="course-list"></div>
+        </div>
+
+        <aside class="side">
+          <section class="panel">
+            <div class="panel-head">
+              <div>
+                <p>Practice</p>
+                <h2>今日題目</h2>
+              </div>
+            </div>
+            <div id="questionBox" class="question-box"></div>
+            <button id="answerButton" type="button">作答並更新弱點</button>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head">
+              <div>
+                <p>Weak points</p>
+                <h2>弱點分析</h2>
+              </div>
+            </div>
+            <div id="weakList" class="weak-list"></div>
+          </section>
+
+          <section class="panel mentor">
+            <div class="panel-head">
+              <div>
+                <p>Teacher room</p>
+                <h2>師生互動</h2>
+              </div>
+            </div>
+            <form id="messageForm" class="stack">
+              <input name="message" required placeholder="輸入想問老師的題目">
+              <button type="submit">送出提問</button>
+            </form>
+            <div id="messageList" class="message-list"></div>
+          </section>
+
+          <section class="panel source">
+            <span>比賽來源</span>
+            <strong>U-start 創新創業計畫 / 114 年度第二階段績優團隊</strong>
+            <p>作品：醫線教育。學校：臺北醫學大學。公司：醫線教育有限公司。</p>
+            <a href="https://ustart.yda.gov.tw/p/405-1000-2178,c147.php?Lang=zh-tw" target="_blank" rel="noreferrer">官方得獎名單</a>
+          </section>
+        </aside>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
