@@ -1,5 +1,21 @@
 # 醫線教育醫療學習平台原型
 
+## 快速看懂
+
+![startup-medical-line-education 功能截圖](docs/preview.png)
+
+- 線上 Demo：https://atlasforcn.github.io/startup-medical-line-education/
+- 這個原型在做什麼：把醫線教育做成醫療學習與診斷邏輯訓練平台。
+- 特色定位：特色是把醫學生學習內容變成案例、推理節點與練習紀錄。
+- 操作流程：選擇醫療學習案例 → 依線索練習診斷推理與知識點 → 查看學習進度與回饋建議
+
+<details>
+<summary>展開完整功能流程截圖</summary>
+
+![startup-medical-line-education 完整功能流程截圖](docs/flow.png)
+
+</details>
+
 ## 比賽來源
 
 - 競賽：U-start 創新創業計畫
