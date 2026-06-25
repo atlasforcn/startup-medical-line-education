@@ -39,7 +39,7 @@
     <!-- repo-snapshot:end -->
     <div class="demo-boundary" role="note">
       <strong>Prototype</strong>
-      <span>靜態互動原型；畫面資料、評分、AI、金流、醫療、法律與安全流程皆為示範，不代表原團隊官方產品或實際服務。</span>
+      <span>靜態醫療教育原型；案例、分數與回饋皆為模擬，只用於學習與教師討論，不構成診斷、治療或臨床能力認證，也不可用於真實病人決策。</span>
     </div>
     <main class="edu-app">
       <section class="hero">
@@ -50,7 +50,15 @@
         <div class="progress-card">
           <span>本週進度</span>
           <strong id="weeklyProgress">0%</strong>
+          <small>學習進度，不等同臨床勝任</small>
         </div>
+      </section>
+
+      <section class="learning-metrics" aria-label="學習驗證摘要">
+        <article><span>本週案例</span><strong>18</strong><small>含 4 筆反例題</small></article>
+        <article><span>教師複核</span><strong>12</strong><small>6 筆等待回饋</small></article>
+        <article><span>解題信心校準</span><strong id="confidenceGap">−14</strong><small>主觀信心與答題結果差距</small></article>
+        <article><span>教育用途</span><strong>100%</strong><small>不連接臨床病歷或醫囑</small></article>
       </section>
 
       <section class="layout">
@@ -79,7 +87,13 @@
               </div>
             </div>
             <div id="questionBox" class="question-box"></div>
-            <button id="answerButton" type="button">作答並更新弱點</button>
+            <div id="answerOptions" class="answer-options"></div>
+            <label class="confidence-control">
+              <span>作答信心 <b id="confidenceValue">70</b>%</span>
+              <input id="answerConfidence" type="range" min="20" max="100" value="70">
+            </label>
+            <button id="answerButton" type="button">提交練習答案</button>
+            <div id="feedbackBox" class="feedback-box" aria-live="polite"></div>
           </section>
 
           <section class="panel">
@@ -116,7 +130,51 @@
           </details>
         </aside>
       </section>
+
+      <section class="evidence-grid" aria-label="市場、驗證與教育邊界">
+        <article class="evidence-panel">
+          <p>USER & PROBLEM</p>
+          <h2>把課後「不知道自己錯在哪」變成可追蹤的學習迴圈</h2>
+          <ul>
+            <li><strong>學習者</strong><span>醫療相關科系學生、實習前學員與持續教育使用者</span></li>
+            <li><strong>高頻痛點</strong><span>題目做完只看到對錯，無法整理推理節點與信心偏差</span></li>
+            <li><strong>教師需求</strong><span>快速看出班級共同弱點、反例誤判與需要討論的案例</span></li>
+          </ul>
+        </article>
+
+        <article class="evidence-panel dark">
+          <p>MARKET & BUSINESS</p>
+          <h2>先服務課程與訓練單位，不碰臨床醫囑。</h2>
+          <div class="business-grid">
+            <div><span>付費者</span><strong>學校 / 訓練機構</strong></div>
+            <div><span>收入方向</span><strong>班級授權 / 題庫模組</strong></div>
+            <div><span>替代方案</span><strong>LMS、紙本題庫、群組討論</strong></div>
+            <div><span>驗證指標</span><strong>錯因改善 / 教師工時</strong></div>
+          </div>
+          <small>以上為概念原型商業假設，不代表原團隊實際定價或客戶。</small>
+        </article>
+
+        <article class="evidence-panel">
+          <p>VALIDATION GATE</p>
+          <h2>評量「學習改善」，不宣稱可以預測臨床表現</h2>
+          <div class="validation-list">
+            <div><b>01</b><span>比較前後測弱點與信心校準</span></div>
+            <div><b>02</b><span>由教師抽查解析與題目品質</span></div>
+            <div><b>03</b><span>追蹤討論後同類題改善率</span></div>
+            <div><b>04</b><span>禁止將分數作為獨立臨床資格認證</span></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="audit-panel" aria-label="學習與教師紀錄">
+        <div>
+          <p>LEARNING AUDIT</p>
+          <h2>答案、信心與教師回饋都留下紀錄</h2>
+        </div>
+        <ol id="learningLog"></ol>
+      </section>
     </main>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
     <script src="app.js"></script>
   </body>
 </html>
